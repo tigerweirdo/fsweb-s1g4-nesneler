@@ -15,6 +15,7 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
+
 function MenuElemaniOlustur(isim, fiyat, kategori){
 	const liste ={
 		"isim":isim,
