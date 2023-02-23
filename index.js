@@ -61,12 +61,14 @@ const burger = {
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
 	
+	
 	indirim: function(musteri) {
+		let sonFiyat = 0;
 	if (musteri == "öğretmen" || musteri == "öğrenci") {
-		var sonFiyat = this.fiyat*0.75;
+		sonFiyat = this.fiyat*0.75;
 	}
 	else if (musteri == "diğer") {
-		var sonFiyat = this.fiyat*0.90;
+		 sonFiyat = this.fiyat*0.90;
 	}
 	return sonFiyat;
 }
@@ -122,11 +124,18 @@ console.log(degerlendirmeler);
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
+function DegerledirmeEkle(data, isim, puan, geribildirim){
 	
+	const degerlendirme = {
+		isim: isim,
+		puan: puan,
+		geribildirim: geribildirim
+	};
+	data.push(degerlendirme);
+	return data;
 }
 
+console.log (DegerledirmeEkle(degerlendirmeler,"ismet", 5, "Çok yoğun."))
 
 
 /*  Görev 6: 
@@ -140,10 +149,12 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-
+function AnahtardanDegerlendirmeAl(data, key) {
+	
+	let sonuc = `${data[key]["isim"]} isimli kişi ${data[key]["puan"]} puan verdi ve şunları yazdı: ${data[key]["geribildirim"]}`
+	return sonuc;
 }
+console.log(AnahtardanDegerlendirmeAl(degerlendirmeler,0));
 
 
 
@@ -158,11 +169,15 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 	Örnek: SonDegerlendirmeyiAl(degerlendirmeler) şunu döndürmeli: "Reyna isimli kişi 3.5 puan verdi ve şunları yazdı: bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım".
 	Not: Eğer 4. görevi başarıyla yaptıysanız kişinin geribildirimi boş görünmemeli
 */
+function SonDegerlendirmeyiAl(data) {
+	
+	let son = `${data[data.length-1].isim} isimli kişi ${data[data.length-1].puan} puan verdi ve şunları yazdı: ${data[data.length-1].geribildirim}`;
+	return son;
+	
+	} 
+	
+	console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 
-
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-} 
 
 
 
